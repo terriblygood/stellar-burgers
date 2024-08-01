@@ -1,23 +1,12 @@
 import React, { FC } from 'react';
-import {
-  Button,
-  ConstructorElement,
-  CurrencyIcon
-} from '@zlden/react-developer-burger-ui-components';
+import { Button, ConstructorElement, CurrencyIcon } from '@zlden/react-developer-burger-ui-components';
 import styles from './burger-constructor.module.css';
 import { BurgerConstructorUIProps } from './type';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorElement, Modal } from '@components';
 import { Preloader, OrderDetailsUI } from '@ui';
 
-export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
-  constructorItems,
-  orderRequest,
-  price,
-  orderModalData,
-  onOrderClick,
-  closeOrderModal
-}) => (
+export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({ constructorItems, orderRequest, price, orderModalData, onOrderClick, closeOrderModal }) => (
   <section className={styles.burger_constructor}>
     {constructorItems.bun ? (
       <div className={`${styles.element} mb-4 mr-4`}>
@@ -79,14 +68,18 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
         <CurrencyIcon type='primary' />
       </div>
       <Button
+        // data-order-button
         htmlType='button'
         type='primary'
         size='large'
         children='Оформить заказ'
         onClick={onOrderClick}
+        disabled={
+          !constructorItems.bun || constructorItems.ingredients.length === 0
+        }
       />
     </div>
-
+    {}
     {orderRequest && (
       <Modal onClose={closeOrderModal} title={'Оформляем заказ...'}>
         <Preloader />
