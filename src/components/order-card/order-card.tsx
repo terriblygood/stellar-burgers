@@ -27,7 +27,9 @@ export const OrderCard: FC<OrderCardProps> = memo(({ order }) => {
     const total = ingredientsInfo.reduce((acc, item) => acc + item.price, 0);
     const ingredientsToShow = ingredientsInfo.slice(0, maxIngredients);
     const remains =
-      ingredientsInfo.length > maxIngredients ? ingredientsInfo.length - maxIngredients : 0;
+      ingredientsInfo.length > maxIngredients
+        ? ingredientsInfo.length - maxIngredients
+        : 0;
 
     const date = new Date(order.createdAt);
     return {

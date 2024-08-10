@@ -9,7 +9,10 @@ export type TProtectedRouteProps = {
   children: ReactElement;
 };
 
-export const ProtectedRoute: FC<TProtectedRouteProps> = ({ onlyUnAuth = false, children }) => {
+export const ProtectedRoute: FC<TProtectedRouteProps> = ({
+  onlyUnAuth = false,
+  children
+}) => {
   const { isAuthChecked, data: user } = useSelector((state) => state.user);
   const location = useLocation();
 
