@@ -1,12 +1,23 @@
 import React, { FC } from 'react';
-import { Button, ConstructorElement, CurrencyIcon } from '@zlden/react-developer-burger-ui-components';
+import {
+  Button,
+  ConstructorElement,
+  CurrencyIcon
+} from '@zlden/react-developer-burger-ui-components';
 import styles from './burger-constructor.module.css';
 import { BurgerConstructorUIProps } from './type';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorElement, Modal } from '@components';
 import { Preloader, OrderDetailsUI } from '@ui';
 
-export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({ constructorItems, orderRequest, price, orderModalData, onOrderClick, closeOrderModal }) => (
+export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
+  constructorItems,
+  orderRequest,
+  price,
+  orderModalData,
+  onOrderClick,
+  closeOrderModal
+}) => (
   <section className={styles.burger_constructor}>
     {constructorItems.bun ? (
       <div className={`${styles.element} mb-4 mr-4`}>
@@ -68,7 +79,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({ constructorI
         <CurrencyIcon type='primary' />
       </div>
       <Button
-        // data-order-button
+        data-order-button
         htmlType='button'
         type='primary'
         size='large'
